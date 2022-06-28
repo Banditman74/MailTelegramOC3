@@ -1,0 +1,60 @@
+fields:
+    telegram_token:
+        label: Bot token
+        span: left
+
+tabs:
+    fields:
+        disabled_in_debug:
+            label: Disabled in debug mode
+            comment: If the site working in debug mode, notification will not be sent
+            type: checkbox
+            span: left
+            tab: Restrictions
+        disabled_sending:
+            label: Disabled sending mail to Telegram
+            comment: If checked, email to Telegram will not be sent
+            type: checkbox
+            span: right
+            tab: Restrictions
+        prevent_mail_sending:
+            label: Don't send email to mailboxes
+            comment: If checked, email to mailboxes will not be sent. If you want to receive messages only in Telegram and not in actual mailboxes.
+            type: checkbox
+            span: right
+            tab: Restrictions
+        admins_to_send:
+            label: Admins to send mail
+            commentAbove: Mail only to this admins will be sent. If none checked - will be sent to all.
+            span: auto
+            type: checkboxlist
+            tab: Restrictions
+
+        telegram_chat_ids:
+            label: Telegram User chat ids
+            type: repeater
+            span: auto
+            tab: Receivers
+            form:
+                fields:
+                    chat_id:
+                        label: User chat id in Telegram
+                        span: auto
+                        placeholder: Required
+                    name:
+                        label: Person Name
+                        span: auto
+                        placeholder: Can be empty
+        get_updates_log:
+            label: Bot getUpdates log
+            type: botlog
+            span: auto
+            tab: Receivers
+            comment: Send message to bot to see your message logs here. You will see your Telegram user ID. Create new "Telegram User chat ids" entry using your ID. If see an error log here, try to get your Telegram id in other way, for example, use @getidsbot.
+
+        strip_eols:
+            label: Strip ends of lines (\n)
+            span: auto
+            type: checkbox
+            tab: Formatting
+            comment: Make notification mail text compact by stripping ends of lines. That will transform the mail text into one paragraph.
